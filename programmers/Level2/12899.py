@@ -15,10 +15,7 @@ def country_124(n):
     else:
         while n > 2:
             answer.append(check_zero(n % 3))
-            if not n % 3:
-                n = math.floor(n / 3) - 1
-            else:
-                n = math.floor(n / 3)
+            n = math.floor(n / 3) - 1 if not n % 3 else math.floor(n / 3)
         answer.append(str(n))
     return str(int(''.join(answer[::-1])))
 
