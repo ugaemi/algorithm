@@ -6,7 +6,14 @@
 
 풀이 과정과 느낀 점은 블로그 포스팅을 합니다.
 
-# 문제 출처
+## 문제 출처
+
+### Sites
 
 - [프로그래머스](https://programmers.co.kr/learn/challenges)
-  - Level 1부터 5까지 난이도 순서대로 풉니다.
+- [백준](https://www.acmicpc.net)
+- [해커랭크](https://www.hackerrank.com/dashboard)
+
+### Books
+
+- ![코딩 인터뷰 완전 분석](http://image.yes24.com/Goods/44305533/800x0)
