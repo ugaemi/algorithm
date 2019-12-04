@@ -16,4 +16,4 @@
 
 ### Books
 
-- ![코딩 인터뷰 완전 분석](http://image.yes24.com/Goods/44305533/800x0)
+- [코딩 인터뷰 완전 분석](http://www.yes24.com/Product/Goods/44305533)
