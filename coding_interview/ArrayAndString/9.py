@@ -14,7 +14,7 @@ def rotation_string(s1, s2):
 
 
 class Test(unittest.TestCase):
-    def test_compression_string(self):
+    def test_rotation_string(self):
         self.assertEqual(rotation_string('waterbottle', 'erbottlewat'), True)
         self.assertEqual(rotation_string('birthday', 'thdayybirt'), False)
 
