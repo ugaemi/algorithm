@@ -25,23 +25,28 @@ class Solution:
 # Best example
 # class Solution:
 #     def threeSum(self, nums: List[int]) -> List[List[int]]:
-#         ans = set()
-#         if len(nums) < 3:
-#             return ans
-#         if nums.count(0) >= 3:
-#             ans.add((0,0,0))
-#         nums_set = set(nums)
-#         numMax, numMin = max(nums_set), min(nums_set)
-#         if numMax <= 0 or numMin >= 0:
-#             return ans
-#         setP = set(num for num in nums_set if (num > 0 and num <= -2 * numMin))
-#         setN = set(num for num in nums_set if (num < 0 and num >= -2 * numMax))
-#         count = collections.Counter(nums)
-#         for numP in setP:
-#             for numN in setN:
-#                 numD = -numP - numN
-#                 if numD in nums_set:
-#                     val = tuple(sorted([numD, numP, numN]))
-#                     if val.count(numD) <= count[numD] and val.count(numP) <= count[numP] and val.count(numN) <= count[numN]:
-#                         ans.add(val)
-#         return ans
+#         res = []
+#         nums.sort()
+#         length = len(nums)
+#
+#         for i in range(length - 2):
+#             if nums[i] > 0:
+#                 break
+#             if i > 0 and nums[i] == nums[i - 1]:
+#                 continue
+#             l, r = i + 1, length - 1
+#             while l < r:
+#                 total = nums[i] + nums[l] + nums[r]
+#                 if total < 0:
+#                     l += 1
+#                 elif total > 0:
+#                     r -= 1
+#                 else:
+#                     res.append([nums[i], nums[l], nums[r]])
+#                     while l < r and nums[l] == nums[l + 1]:
+#                         l += 1
+#                     while l < r and nums[r] == nums[r - 1]:
+#                         r -= 1
+#                     l += 1
+#                     r -= 1
+#         return res
