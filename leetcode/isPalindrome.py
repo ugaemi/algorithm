@@ -2,17 +2,22 @@ import unittest
 
 
 class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        return str(x) == str(x)[::-1]
+    def isPalindrome(self, s: str) -> bool:
+        stack = []
+        for c in s:
+            if c.isalnum():
+                stack.append(c.lower())
+        while len(stack) > 1:
+            if stack.pop(0) != stack.pop():
+                return False
+        return True
 
 
 class Test(unittest.TestCase):
     def test_isPalindrome(self):
         solution = Solution()
-        self.assertEqual(solution.isPalindrome(121), True)
-        self.assertEqual(solution.isPalindrome(-121), False)
-        self.assertEqual(solution.isPalindrome(10), False)
-        self.assertEqual(solution.isPalindrome(-101), False)
+        self.assertEqual(solution.isPalindrome("A man, a plan, a canal: Panama"), True)
+        self.assertEqual(solution.isPalindrome("race a car"), False)
 
 
 if __name__ == '__main__':
