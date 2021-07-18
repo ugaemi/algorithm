@@ -1,16 +1,12 @@
+import re
 import unittest
 
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        stack = []
-        for c in s:
-            if c.isalnum():
-                stack.append(c.lower())
-        while len(stack) > 1:
-            if stack.pop(0) != stack.pop():
-                return False
-        return True
+        s = s.lower()
+        s = re.sub('[^a-z0-9]', '', s)
+        return s == s[::-1]
 
 
 class Test(unittest.TestCase):
