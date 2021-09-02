@@ -2,23 +2,12 @@ import unittest
 
 
 def solution(table, languages, preference):
-    language_preference = []
-    for lang, pref in zip(languages, preference):
-        language_preference.append((lang, pref))
-
     points = {}
     for col in table:
         splitted_data = col.split()
-        key = splitted_data.pop(0)
-        langs = splitted_data[::-1]
-        point = 0
-        for pref in language_preference:
-            try:
-                point += (langs.index(pref[0]) + 1) * pref[1]
-            except ValueError:
-                continue
-        points[key] = point
-
+        for lang, pref in zip(languages, preference):
+            if lang in splitted_data:
+                points[splitted_data[0]] = points.get(splitted_data[0], 0) + (6 - splitted_data.index(lang)) * pref
     return sorted(points, key=lambda k: (-points[k], k))[0]
 
 
