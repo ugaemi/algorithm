@@ -13,29 +13,21 @@ from collections import defaultdict
 
 class TimeMap:
     def __init__(self):
-        self.dict = defaultdict(defaultdict)
+        self.dict = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
-        self.dict[key][timestamp] = value
-
-    def search(self, key: str, timestamp: int):
-        sorted_keys = sorted(list(self.dict[key].keys()))
-        start, end = 0, len(sorted_keys)
-        if timestamp < sorted_keys[0]:
-            return ""
-        mid = 0
-        while start < end:
-            mid = (start + end) // 2
-            if sorted_keys[mid] < timestamp:
-                start = mid + 1
-            elif sorted_keys[mid] > timestamp:
-                end = mid
-            else:
-                break
-        return self.dict[key].get(sorted_keys[mid], "")
+        self.dict[key].append([timestamp, value])
 
     def get(self, key: str, timestamp: int) -> str:
-        return self.dict[key].get(timestamp, self.search(key, timestamp))
+        arr = self.dict[key]
+        left, right = 0, len(arr)
+        while left < right:
+            mid = (left + right) // 2
+            if arr[mid][0] <= timestamp:
+                left = mid + 1
+            elif arr[mid][0] > timestamp:
+                right = mid
+        return "" if right == 0 else arr[right - 1][1]
 
 
 # Your TimeMap object will be instantiated and called as such:
