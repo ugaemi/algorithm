@@ -38,5 +38,5 @@ class Test(unittest.TestCase):
         self.assertEqual(mok_exam([1, 3, 2, 4, 2]), [1, 2, 3])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
