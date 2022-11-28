@@ -1,3 +1,4 @@
 .idea/
 coding_test/dilivery_hero_korea
 venv/
+__pycache__/
