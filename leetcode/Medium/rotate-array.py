@@ -1,6 +1,3 @@
-"""
-Given an array, rotate the array to the right by k steps, where k is non-negative.
-"""
 import unittest
 from typing import List
 
