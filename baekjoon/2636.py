@@ -27,7 +27,6 @@ def bfs():
                     graph[nx][ny] = 0
                     visited[nx][ny] = 1
                     count += 1
-    cheeses.append(count)
     return count
 
 
