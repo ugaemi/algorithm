@@ -1,20 +1,13 @@
 x = int(input())
-stick = 64
 
-while stick > 0:
-    if stick == x:
-        print(1)
+stick = [64, 32, 16, 8, 4, 2, 1]
+count = 0
+
+for i in range(len(stick)):
+    if x >= stick[i]:
+        count += 1
+        x -= stick[i]
+    if x == 0:
         break
-    if stick > x:
-        stick >>= 1
-    else:
-        answer = 1
-        tmp = [stick]
-        stick >>= 1
-        while stick > 0:
-            if (sum(tmp) + stick) <= x:
-                tmp.append(stick)
-            if sum(tmp) == stick:
-                break
-            stick >>= 1
-        print(len(tmp))
+
+print(count)
